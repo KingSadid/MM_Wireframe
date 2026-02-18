@@ -10,7 +10,6 @@ class AppBarClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
       title: 'Demostración de AppBar',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -22,14 +21,44 @@ class AppBarClass extends StatelessWidget {
   }
 }
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  int _selectedIndex = 0;
+
+  static const TextStyle optionStyle = TextStyle(
+    fontSize: 30,
+    fontWeight: FontWeight.bold,
+  );
+
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text('Índice 0: Inicio', style: optionStyle),
+    Text('Índice 1: Negocios', style: optionStyle),
+    Text('Índice 2: Escuela', style: optionStyle),
+  ];
+
+  static const List<String> _appBarTitles = <String>[
+    'Inicio',
+    'Negocios',
+    'Escuela',
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'AppBar demo',
+        title: _appBarTitles[_selectedIndex],
         onMenuPressed: () {
           debugPrint('Menú presionado');
         },
@@ -40,8 +69,27 @@ class MainScreen extends StatelessWidget {
           debugPrint('Perfil presionado');
         },
       ),
-      body: const Center(
-        child: Text('Contenido Principal'),
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Inicio',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.business),
+            label: 'Negocios',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            label: 'Escuela',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
       ),
     );
   }
