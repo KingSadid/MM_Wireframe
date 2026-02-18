@@ -10,6 +10,7 @@ class AppBarClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
       title: 'Demostración de AppBar',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -28,7 +29,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'AppBar Personalizado',
+        title: 'AppBar demo',
         onMenuPressed: () {
           debugPrint('Menú presionado');
         },
