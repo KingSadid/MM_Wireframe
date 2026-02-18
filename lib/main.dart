@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'widgets/custom_card.dart';
 
 void main() {
   runApp(const AppBarClass());
@@ -37,7 +38,15 @@ class _MainScreenState extends State<MainScreen> {
   );
 
   static const List<Widget> _widgetOptions = <Widget>[
-    Text('Índice 0: Inicio', style: optionStyle),
+    Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        CustomCard(
+          title: 'Título de la Tarjeta',
+          subtitle: 'Este es un subtítulo descriptivo para la tarjeta personalizada en la pantalla de inicio.',
+        ),
+      ],
+    ),
     Text('Índice 1: Negocios', style: optionStyle),
     Text('Índice 2: Escuela', style: optionStyle),
   ];
