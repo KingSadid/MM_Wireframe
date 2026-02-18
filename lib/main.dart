@@ -28,7 +28,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'Inicio',
+        title: 'AppBar Personalizado',
         onMenuPressed: () {
           debugPrint('Menú presionado');
         },
