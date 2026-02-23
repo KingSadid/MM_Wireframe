@@ -13,25 +13,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // 1. Variable para controlar el índice actual (por defecto 1 como en el diseño)
   int _selectedIndex = 1;
 
-  // 2. Definimos las diferentes vistas para cada pestaña
-  // La vista del índice 1 es la que ya construimos (Home)
-  late final List<Widget> _pages;
+  final List<Widget> _pages = const [
+    _PlaceholderScreen(title: "Tab 0"),
+    _HomeContent(),
+    _PlaceholderScreen(title: "Tab 2"),
+    _PlaceholderScreen(title: "Tab 3"),
+  ];
 
-  @override
-  void initState() {
-    super.initState();
-    _pages = [
-      const _PlaceholderScreen(title: "Tab 0"),
-      const _HomeContent(), // Nuestro diseño principal
-      const _PlaceholderScreen(title: "Tab 2"),
-      const _PlaceholderScreen(title: "Tab 3"),
-    ];
-  }
-
-  // 3. Función para cambiar el estado
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -42,12 +32,9 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        // 4. Mostramos la página según el índice seleccionado
         child: Column(
           children: [
             Expanded(child: _pages[_selectedIndex]),
-            
-            // 5. Conectamos la barra de navegación
             CustomBottomNavBar(
               selectedIndex: _selectedIndex,
               onItemTapped: _onItemTapped,
@@ -59,9 +46,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-// --- Componentes Privados para organizar el código ---
-
-// El contenido original del Home lo movimos aquí para limpiarlo
 class _HomeContent extends StatelessWidget {
   const _HomeContent();
 
@@ -93,7 +77,6 @@ class _HomeContent extends StatelessWidget {
   }
 }
 
-// Pantalla simple para las pestañas vacías
 class _PlaceholderScreen extends StatelessWidget {
   final String title;
   const _PlaceholderScreen({required this.title});

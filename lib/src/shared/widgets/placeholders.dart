@@ -24,10 +24,10 @@ class TextLinePlaceholder extends StatelessWidget {
   final Color? color;
 
   const TextLinePlaceholder({
-    super.key, 
-    required this.width, 
-    this.height = 10, 
-    this.color
+    super.key,
+    required this.width,
+    this.height = 10,
+    this.color,
   });
 
   @override

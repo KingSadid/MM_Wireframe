@@ -21,25 +21,18 @@ class CustomBottomNavBar extends StatelessWidget {
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          _buildNavItem(index: 0),
-          _buildNavItem(index: 1),
-          _buildNavItem(index: 2),
-          _buildNavItem(index: 3),
-        ],
+        children: List.generate(4, (index) => _buildNavItem(index)),
       ),
     );
   }
 
-  Widget _buildNavItem({required int index}) {
+  Widget _buildNavItem(int index) {
     final bool isActive = index == selectedIndex;
-
     return GestureDetector(
-      onTap: () => onItemTapped(index), // Detecta el toque
-      behavior: HitTestBehavior.opaque, // Aumenta el área de toque
+      onTap: () => onItemTapped(index),
+      behavior: HitTestBehavior.opaque,
       child: Container(
-        // Añadimos un padding invisible para facilitar el click con el dedo
-        padding: const EdgeInsets.all(10), 
+        padding: const EdgeInsets.all(10),
         child: isActive ? _buildActiveIcon() : _buildInactiveIcon(),
       ),
     );
@@ -65,14 +58,14 @@ class CustomBottomNavBar extends StatelessWidget {
           height: 40,
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
-            color: AppTheme.scribbleDark, // Color oscuro cuando está activo
+            color: AppTheme.scribbleDark,
           ),
         ),
         const SizedBox(height: 4),
         Container(
           width: 20,
           height: 3,
-          color: Colors.black, // La línea de subrayado
+          color: Colors.black,
         )
       ],
     );
