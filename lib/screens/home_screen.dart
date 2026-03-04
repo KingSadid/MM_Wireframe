@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../shared/widgets/custom_bottom_nav.dart';
-import '../../../shared/widgets/placeholders.dart';
+import '../widgets/custom_bottom_nav.dart';
+import '../widgets/placeholders.dart';
 import '../widgets/category_list.dart';
 import '../widgets/custom_top_bar.dart';
 import '../widgets/featured_profile_card.dart';

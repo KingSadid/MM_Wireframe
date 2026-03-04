@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'src/core/theme/app_theme.dart';
-import 'src/features/home/screens/home_screen.dart';
+import 'theme/app_theme.dart';
+import 'screens/home_screen.dart';
 
 void main() {
   runApp(const SketchCloneApp());

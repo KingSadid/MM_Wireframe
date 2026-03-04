@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../core/theme/app_theme.dart';
-import '../../../shared/widgets/placeholders.dart';
+import '../theme/app_theme.dart';
+import 'placeholders.dart';
 
 class FeaturedProfileCard extends StatelessWidget {
   const FeaturedProfileCard({super.key});
